@@ -155,7 +155,7 @@ body {
   height: 20vh;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   flex-direction: column;
   padding: 1rem;
   border: 5px solid #ffffff6a;

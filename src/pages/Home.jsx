@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { RiDrizzleFill, RiMistLine, RiWindyFill } from "react-icons/ri";
+import { RiDrizzleFill, RiMistLine } from "react-icons/ri";
 import { IoMdCloudy, IoMdPartlySunny, IoMdRainy } from "react-icons/io";
 import Favorite from "../components/Favorite";
 import WInfo from "../components/WInfo";

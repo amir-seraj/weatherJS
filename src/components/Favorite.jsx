@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { TiLocationOutline } from "react-icons/ti";
 import { MdFavorite } from "react-icons/md";
 import { GiTrashCan } from "react-icons/gi";
