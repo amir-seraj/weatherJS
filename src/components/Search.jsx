@@ -7,6 +7,7 @@ function Search({ setName, handleClick, degFlag, data, setDegFlag, setFDeg }) {
   const [temp, setTemp] = useState("");
   useEffect(() => {
     setName(temp);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [temp]);
   const handleSubmit = (e) => {
     setTemp(nameRef.current.value);

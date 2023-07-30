@@ -33,6 +33,7 @@ function Favorite({ name, setName, handleClick }) {
 
   useEffect(() => {
     handleClick();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name]);
   return (
     <div className="fav-container">
