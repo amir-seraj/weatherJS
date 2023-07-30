@@ -30,10 +30,10 @@ function Favorite({ name, setName, handleClick }) {
       localStorage.setItem("favlist", JSON.stringify([...favList]));
     }
   }, [favList]);
-  function getFav(item) {
-    setName(item);
+
+  useEffect(() => {
     handleClick();
-  }
+  }, [name]);
   return (
     <div className="fav-container">
       <div className="fav-header">
@@ -45,7 +45,11 @@ function Favorite({ name, setName, handleClick }) {
       <div className="fav">
         {favList.map((item, index) => (
           <div className="fav-item" key={index}>
-            <li onClick={getFav(item)}>
+            <li
+              onClick={() => {
+                setName(item);
+              }}
+            >
               <TiLocationOutline size="1.2rem" />
               {JSON.stringify(item)} |
             </li>
