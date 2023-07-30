@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import DegConverter from "./DegConverter";
 import { FaSearchLocation } from "react-icons/fa";
 
@@ -8,22 +8,20 @@ function Search({ setName, handleClick, degFlag, data, setDegFlag, setFDeg }) {
       <input
         type="text"
         placeholder="Enter City Name"
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
+        onChange={(e) => setName(e.target.value)}
+        id="name"
       />
       <div className="buttons">
-        <button onClick={() => handleClick()}>
+        <button type="submit" onClick={handleClick}>
           <FaSearchLocation size="1.5rem" />
         </button>
-
-        <DegConverter
-          degFlag={degFlag}
-          setDegFlag={setDegFlag}
-          CDeg={data.celsius}
-          setFDeg={setFDeg}
-        />
       </div>
+      <DegConverter
+        degFlag={degFlag}
+        setDegFlag={setDegFlag}
+        CDeg={data.celsius}
+        setFDeg={setFDeg}
+      />
     </div>
   );
 }

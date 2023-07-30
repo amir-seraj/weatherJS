@@ -1,54 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TiLocationOutline } from "react-icons/ti";
 import { MdFavorite } from "react-icons/md";
 import { GiTrashCan } from "react-icons/gi";
 
 function Favorite({ name, setName, handleClick }) {
-  const [fav, setFav] = useState([]);
-  let arrayFavs = Object.keys(localStorage);
-
-  const addFav = (name) => {
-    if (!fav.includes(name)) {
-      setFav([...fav, name]);
-      localStorage.setItem(JSON.stringify(name), true);
+  const [favList, setFavList] = useState(() => {
+    let currentList;
+    try {
+      currentList = JSON.parse(localStorage.getItem("favlist") || []);
+    } catch (error) {
+      currentList = [];
+    }
+    return currentList;
+  });
+  const handleFavAdd = (name) => {
+    if (!favList.includes(name) && name !== "") {
+      setFavList([...favList, name]);
     } else {
-      console.log(arrayFavs);
       console.log("exists");
     }
   };
   const removeFav = (name) => {
-    setFav(fav.filter((item) => item !== name));
-    localStorage.removeItem(name);
+    if (favList.includes(name)) {
+      setFavList(favList.filter((item) => item !== name));
+    }
   };
-  // const getArray = JSON.parse(localStorage.getItem("favorites") || "0");
-
-  // console.log(getArray);
-
-  // useEffect(() => {
-  //   if (getArray !== 0) {
-  //     setFav([...getArray]);
-  //   }
-  // }, []);
-
+  useEffect(() => {
+    if (favList.length >= 0) {
+      localStorage.setItem("favlist", JSON.stringify([...favList]));
+    }
+  }, [favList]);
+  function getFav(item) {
+    setName(item);
+    handleClick();
+  }
   return (
     <div className="fav-container">
       <div className="fav-header">
         <h3>Favorites</h3>{" "}
-        <button onClick={() => addFav(name)}>
+        <button onClick={() => handleFavAdd(name)}>
           ADD <MdFavorite size="1.3rem" />
         </button>{" "}
       </div>
       <div className="fav">
-        {arrayFavs?.map((item, index) => (
+        {favList.map((item, index) => (
           <div className="fav-item" key={index}>
-            <li
-              onClick={() => {
-                setName(item);
-                handleClick();
-              }}
-            >
+            <li onClick={getFav(item)}>
               <TiLocationOutline size="1.2rem" />
-              {JSON.parse(item)} |
+              {JSON.stringify(item)} |
             </li>
             <button
               onClick={() => {

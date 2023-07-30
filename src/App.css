@@ -55,7 +55,7 @@ body {
   flex-direction: column;
 }
 .weather {
-  width: 100%;
+  width: 50%;
   height: 400px;
   padding: 1rem;
   border: 5px solid #ffffff6a;
