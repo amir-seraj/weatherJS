@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import DegConverter from "./DegConverter";
 import { FaSearchLocation } from "react-icons/fa";
 
