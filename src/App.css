@@ -55,7 +55,7 @@ body {
   flex-direction: column;
 }
 .weather {
-  width: 50%;
+  width: 70vw;
   height: 400px;
   padding: 1rem;
   border: 5px solid #ffffff6a;
@@ -75,17 +75,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 .search input {
   border: none;
   outline: 0;
   padding: 12px 25px;
-  font-size: 18px;
+  font-size: 15px;
   background-color: rgb(222, 237, 243);
   color: black;
   border-radius: 30px;
   flex: 1;
   margin-right: 12px;
+  width: 50%;
 }
 .search button {
   border: none;
@@ -106,6 +108,12 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
 }
+.winfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 .winfo .icon {
   margin-top: 20px;
   width: 170px;
@@ -123,14 +131,14 @@ body {
 .details {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0px 20px;
-  margin-top: 50px;
+  justify-content: center;
+  width: 50%;
 }
 .details .col {
   display: flex;
   align-items: center;
   text-align: left;
+  padding: 0.5rem;
 }
 .details .col img {
   width: 45px;
@@ -144,6 +152,7 @@ body {
 .humidity p,
 .wind p {
   margin: 0px;
+  font-size: 20px;
 }
 .error {
   color: rgb(235, 169, 169);

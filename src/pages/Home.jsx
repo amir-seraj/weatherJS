@@ -21,7 +21,8 @@ function Home() {
 
   const handleClick = () => {
     if (name !== "") {
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=b951387ef2d5899926ebfcbf5ae81bef&units=metric`;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=47cb1d23a5fbe26d8642f773f8b66582&units=metric`;
+      // const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=b951387ef2d5899926ebfcbf5ae81bef&units=metric`;
       axios
         .get(apiUrl)
         .then((res) => {
